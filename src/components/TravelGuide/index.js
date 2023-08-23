@@ -12,7 +12,7 @@ const apiStatusConstants = {
 }
 
 class TravelGuide extends Component {
-  state = {placeList: [], apiStatus: apiStatusConstants.initial}
+  state = {placesList: [], apiStatus: apiStatusConstants.initial}
 
   componentDidMount() {
     this.getTravelPlaces()
@@ -36,7 +36,7 @@ class TravelGuide extends Component {
       )
       console.log(updatedList)
       this.setState({
-        placeList: updatedList,
+        placesList: updatedList,
         apiStatus: apiStatusConstants.success,
       })
     }
@@ -48,11 +48,11 @@ class TravelGuide extends Component {
     </div>
   )
 
-  renderPlaceView = () => {
+  renderPlacesView = () => {
     const {placeList} = this.state
     return (
       <ul className="places-list-container">
-        {placeList.mpa(eachPlace => (
+        {placesList.mpa(eachPlace => (
           <TravelPlaceList eachPlace={eachPlace} key={eachPlace.id} />
         ))}
       </ul>
